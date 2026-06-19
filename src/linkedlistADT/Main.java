@@ -67,7 +67,7 @@ public class Main {
         CustomLinkedList testLinkedList = new CustomLinkedList();
         
         // Call readTextFile and read in the text file adding data to testLinkedList
-        readTextFile("numbers1.txt", testLinkedList);
+        readTextFile("numbers2.txt", testLinkedList);
         
         // Text file print statement
         System.out.println("\n\nOutput of the text file:");
