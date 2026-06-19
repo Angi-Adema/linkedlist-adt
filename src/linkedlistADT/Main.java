@@ -8,16 +8,16 @@ import java.util.Iterator;
 public class Main {
 	
     // Create method to read in text file and call CustomLinkedList to process data output
-    public void readTextFile(String fileName, CustomLinkedList linkedList) {
+    public static void readTextFile(String fileName, CustomLinkedList linkedList) {
     	
-    	// Try with resources to close resources automatically and error handling for file access
+    	// Try with resources to close resources automatically and error handling for file access and content
     	// Use BufferedReader to read in the text file data
-    	try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    	try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
     		
     		// Store read in text data
     		String text;
     		
-    		// Check to see if there is still text to be read in and covert it to int from String
+    		// Check to see if there is still text to be read in, insert data to linked list and covert it to int from String
     		while((text = br.readLine()) != null) {
     			linkedList.insert(Integer.parseInt(text));
     		}
@@ -25,6 +25,11 @@ public class Main {
     		
     		// Print error messages
     		System.out.println("Error reading the file, please try again!" + e.getMessage());
+    		
+    	} catch (NumberFormatException e) {
+    		
+    		// Print error messages
+    		System.out.println("File contains data that cannot convert to int." + e.getMessage());
     	}
     }
 
