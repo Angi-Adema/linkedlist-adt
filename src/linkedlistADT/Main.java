@@ -48,5 +48,8 @@ public class Main {
             System.out.print(iterator.next() + " ");
         }
         
+        // Test numbers1 text file
+        readTextFile("numbers1.txt", linkedList);
+        
 	}
 }
