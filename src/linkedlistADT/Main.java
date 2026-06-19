@@ -29,7 +29,7 @@ public class Main {
     	} catch (NumberFormatException e) {
     		
     		// Print error messages
-    		System.out.println("File contains data that cannot convert to int." + e.getMessage());
+    		System.out.println("\nFile contains data that cannot convert to int. " + e.getMessage());
     	}
     }
 
@@ -41,6 +41,12 @@ public class Main {
         linkedList.insert(1);
         linkedList.insert(2);
         linkedList.insert(3);
+        
+        // Add an additional test value to test delete method
+        linkedList.insert(8);
+        
+        // Print statement identifying the list prior to calling delete
+        System.out.println("Insertion of integers to the linked list including test value of 8.");
 
         // Iterate and display elements
         Iterator<Integer> iterator = linkedList.iterator();
@@ -48,8 +54,30 @@ public class Main {
             System.out.print(iterator.next() + " ");
         }
         
-        // Test numbers1 text file
-        readTextFile("numbers1.txt", linkedList);
+        // Call delete method to delete the test item and reprint the linkedList
+        linkedList.delete(8);
+        System.out.println("\n\nList after test value 8 is removed:");
         
+        iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
+        
+        // Create a new linked list object to test text files
+        CustomLinkedList testLinkedList = new CustomLinkedList();
+        
+        // Call readTextFile and read in the text file adding data to testLinkedList
+        readTextFile("numbers1.txt", testLinkedList);
+        
+        // Text file print statement
+        System.out.println("\n\nOutput of the text file:");
+        
+        // Create an iterator object for the text file iterator
+        Iterator<Integer> textFileIterator = testLinkedList.iterator();
+        
+        // Loop through the text file and print the data
+        while (textFileIterator.hasNext()) {
+        	System.out.print(textFileIterator.next() + " ");
+        }  
 	}
 }
