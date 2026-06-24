@@ -33,14 +33,14 @@ public class Main {
     	}
     }
 
-
+    // REFACTORED - Added additional value of 8 to demonstrate deletion of all occurrences
 	public static void main(String[] args) {
         CustomLinkedList linkedList = new CustomLinkedList();
 
         // Insert some elements
         linkedList.insert(1);
         
-        // Insert duplicate value 8
+        // REFACTORED - Insert duplicate value 8
         linkedList.insert(8);
         
         linkedList.insert(2);
