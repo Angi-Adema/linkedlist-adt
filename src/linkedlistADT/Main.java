@@ -39,6 +39,10 @@ public class Main {
 
         // Insert some elements
         linkedList.insert(1);
+        
+        // Insert duplicate value 8
+        linkedList.insert(8);
+        
         linkedList.insert(2);
         linkedList.insert(3);
         

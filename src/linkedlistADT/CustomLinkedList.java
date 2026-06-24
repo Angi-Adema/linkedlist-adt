@@ -35,36 +35,30 @@ public class CustomLinkedList {
     	
     }
     
+    // REFACTORED to handle edge cases such as duplicate values or removing from empty list
     // Delete method to remove the first occurrence of a node
     public void delete(int data) {
     	
-    	// Starting from the head node
-    	Node current = head;
+    	// ADDED - delete duplicate nodes within the list
+    	while (head != null && head.data == data) {
+    		head = head.next;
+    	}
     	
-    	// Check if the head node is equal to null, return out if it is
+    	// Check if list is empty, return out if it is
     	if (head == null) {
     		return;
     	}
     	
-    	// Check if the head node is equal to the data value passed in and if
-    	// it is, make the next node the head node to remove the node from the list and return out
-    	if (head.data == data) {
-    		head = head.next;
-    		return;
-    	}
+    	// Starting from the head node
+    	Node current = head;
     	
-    	// Loop through the linked list until the node before the data passed in is found
-    	// or the end of the list is located
-    	while (current.next != null && current.next.data != data) {
-    		
-    		// Move to the next node
-    		current = current.next;
-    	}
-    	
-    	// If the loop reaches a node that is equal to the passed in data, we skip over
-    	// this node eliminating it from the list
-    	if (current.next != null) {
-    		current.next = current.next.next;
+    	// REFACTORED - Loop through the linked list and skip the next node if it matches data to remove
+    	while (current.next != null) {
+    		if (current.next.data == data) {
+    			current.next = current.next.next;
+    		} else {
+    			current = current.next;
+    		}
     	}
     }
 
