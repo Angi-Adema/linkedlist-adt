@@ -36,10 +36,10 @@ public class CustomLinkedList {
     }
     
     // REFACTORED to handle edge cases such as duplicate values or removing from empty list
-    // Delete method to remove the first occurrence of a node
+    // Delete method to remove all occurrences of a node
     public void delete(int data) {
     	
-    	// ADDED - delete duplicate nodes within the list
+    	// ADDED - delete all matching nodes from the front of the list
     	while (head != null && head.data == data) {
     		head = head.next;
     	}
